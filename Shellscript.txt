@@ -1,0 +1,44 @@
+#!/bin/bash
+Teclado=0;
+Copiar=0;
+Nombre="";
+Archivo="";
+Ruta="";
+Ver="";
+function menu {
+clear
+echo "1) Crear un nuevo directorio"
+echo "2) Copiar un archivo"
+echo "3) Ver el contenido de un archivo"
+echo "4) Salir"
+}
+while [ $Teclado -ne 4 ]
+do
+menu
+read -p "Ingrese la opcion deseada:" Teclado
+case $Teclado in
+    1) 
+       clear
+       read -p "Ingrese el nombre de el directorio:" Nombre
+       mkdir $Nombre;
+       read -p "Presione ENTER para continuar..."
+           ;;
+    2)
+       clear
+       read -p "Ingrese el nombre del archivo que desea copiar:" Archivo
+       touch $Archivo;
+       read -p "Ingrese la ruta a donde quiere copiar el archivo:" Ruta
+       cp $Archivo $Ruta
+       ;;
+    3) 
+       clear
+       read -p "Ingrese el nombre del archivo que desea visualizar:" Ver
+       cat $Ver;
+       read -p "Presione ENTER para continuar..."
+       ;;
+     4) 
+       clear
+       read -p "Hasta luego!"
+       ;;
+ esac
+done
